@@ -67,7 +67,7 @@ if [[ "$(uname)" == *CYGWIN* ]]; then
 fi
 toolsdir="$LOCALDIR/tools"
 
-if [[ ! -d "$toolsdir/extract_android_ota_payload" ]]; then
+if [[ ! -d "$toolsdir/update_payload_extractor" ]]; then
     git clone -q https://github.com/FoxetGSI/payload_dumper.git "$toolsdir/update_payload_extractor"
 else
     git -C "$toolsdir/extract_android_ota_payload" pull
