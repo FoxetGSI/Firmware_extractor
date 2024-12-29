@@ -69,10 +69,8 @@ toolsdir="$LOCALDIR/tools"
 
 if [[ ! -d "$toolsdir/oppo_ozip_decrypt" ]]; then
     git clone -q https://github.com/bkerler/oppo_ozip_decrypt.git "$toolsdir/oppo_ozip_decrypt"
-    git -C "$toolsdir/oppo_ozip_decrypt" reset -q --hard d02128dade8fffaf16e00f9f7d01f7be39558f69
 else
     git -C "$toolsdir/oppo_ozip_decrypt" pull
-    git -C "$toolsdir/oppo_ozip_decrypt" reset -q --hard d02128dade8fffaf16e00f9f7d01f7be39558f69
 fi
 
 simg2img="$toolsdir/$HOST/bin/simg2img"
