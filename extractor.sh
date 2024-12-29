@@ -68,7 +68,7 @@ fi
 toolsdir="$LOCALDIR/tools"
 
 if [[ ! -d "$toolsdir/extract_android_ota_payload" ]]; then
-    git clone -q https://github.com/cyxx/extract_android_ota_payload.git "$toolsdir/extract_android_ota_payload"
+    git clone -q https://github.com/XiaomiFirmwareUpdater/extract_android_ota_payload.git "$toolsdir/extract_android_ota_payload"
 else
     git -C "$toolsdir/extract_android_ota_payload" pull
 fi
