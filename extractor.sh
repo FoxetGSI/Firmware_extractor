@@ -67,22 +67,12 @@ if [[ "$(uname)" == *CYGWIN* ]]; then
 fi
 toolsdir="$LOCALDIR/tools"
 
-if [[ ! -d "$toolsdir/extract_android_ota_payload" ]]; then
-    git clone -q https://github.com/XiaomiFirmwareUpdater/extract_android_ota_payload.git "$toolsdir/extract_android_ota_payload"
-else
-    git -C "$toolsdir/extract_android_ota_payload" pull
-fi
 if [[ ! -d "$toolsdir/oppo_ozip_decrypt" ]]; then
     git clone -q https://github.com/bkerler/oppo_ozip_decrypt.git "$toolsdir/oppo_ozip_decrypt"
     git -C "$toolsdir/oppo_ozip_decrypt" reset -q --hard d02128dade8fffaf16e00f9f7d01f7be39558f69
 else
     git -C "$toolsdir/oppo_ozip_decrypt" pull
     git -C "$toolsdir/oppo_ozip_decrypt" reset -q --hard d02128dade8fffaf16e00f9f7d01f7be39558f69
-fi
-if [[ ! -d "$toolsdir/update_payload_extractor" ]]; then
-    git clone -q https://github.com/erfanoabdi/update_payload_extractor.git "$toolsdir/update_payload_extractor"
-else
-    git -C "$toolsdir/update_payload_extractor" pull
 fi
 
 simg2img="$toolsdir/$HOST/bin/simg2img"
