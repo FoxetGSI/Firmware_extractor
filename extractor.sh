@@ -67,10 +67,10 @@ if [[ "$(uname)" == *CYGWIN* ]]; then
 fi
 toolsdir="$LOCALDIR/tools"
 
-if [[ ! -d "$toolsdir/update_payload_extractor" ]]; then
-    git clone -q https://github.com/FoxetGSI/payload_dumper.git "$toolsdir/update_payload_extractor"
+if [[ ! -d "$toolsdir/payload_dumper" ]]; then
+    git clone -q https://github.com/FoxetGSI/payload_dumper.git "$toolsdir/payload_dumper"
 else
-    git -C "$toolsdir/extract_android_ota_payload" pull
+    git -C "$toolsdir/payload_dumper" pull
 fi
 if [[ ! -d "$toolsdir/oppo_ozip_decrypt" ]]; then
     git clone -q https://github.com/bkerler/oppo_ozip_decrypt.git "$toolsdir/oppo_ozip_decrypt"
@@ -81,7 +81,7 @@ fi
 simg2img="$toolsdir/$HOST/bin/simg2img"
 packsparseimg="$toolsdir/$HOST/bin/packsparseimg"
 unsin="$toolsdir/$HOST/bin/unsin"
-payload_extractor="$toolsdir/update_payload_extractor/payload_dumper.py"
+payload_extractor="$toolsdir/payload_dumper/payload_dumper.py"
 sdat2img="$toolsdir/sdat2img.py"
 ozipdecrypt="$toolsdir/oppo_ozip_decrypt/ozipdecrypt.py"
 lpunpack="$toolsdir/$HOST/bin/lpunpack"
@@ -387,7 +387,7 @@ elif [[ $(7z l -ba "$romzip" | grep .tar) && ! $(7z l -ba "$romzip" | grep tar.m
 elif [[ $(7z l -ba "$romzip" | grep payload.bin) ]]; then
     echo "AB OTA detected"
     7z e -y "$romzip" payload.bin 2>/dev/null >> $tmpdir/zip.log
-    python3 "$toolsdir/update_payload_extractor/payload_dumper.py" --out $tmpdir payload.bin
+    python3 "$toolsdir/payload_dumper/payload_dumper.py" --out $tmpdir payload.bin
     for partition in $PARTITIONS; do
         [[ -e "$tmpdir/$partition.img" ]] && mv "$tmpdir/$partition.img" "$outdir/$partition.img"
     done
