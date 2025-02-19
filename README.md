@@ -10,16 +10,6 @@ apt install liblzma-dev python3-pip brotli lz4
 pip3 install backports.lzma protobuf pycrypto
 ```
 
-### For "rename" and "mpack" you need to manually clone and install the packages
-```bash
-for package in mpack rename; do
-    git clone https://aur.archlinux.org/"${package}"
-    cd "${package}" || continue
-    makepkg -si --skippgpcheck
-    cd - || break
-    rm -rf "${package}"
-done
-```
 # How to use
 ## Download
 ```
