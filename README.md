@@ -7,7 +7,7 @@
 ```bash
 apt install unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract rename
 apt install liblzma-dev python3-pip brotli lz4
-pip3 install backports.lzma protobuf pycrypto
+pip3 install backports.lzma protobuf pycryptodome
 ```
 
 # How to use
